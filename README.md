@@ -1,6 +1,6 @@
 <div align="center">
   <h2>ODIM Android</h2>
-  <p>Operationalized Digital Interaction Mining for Android — capture, curate, and upload interaction traces for research.</p>
+  <p>On-Device Interaction Mining for Android — capture, curate, and upload interaction traces for research.</p>
   
   <p>
     <a href="https://shields.io/">
@@ -30,13 +30,19 @@
     · <a href="#storage-layout">Storage</a>
     · <a href="#privacy--permissions">Privacy</a>
     · <a href="#networking">Networking</a>
+    · <a href="#dependencies">Dependencies</a>
+    · <a href="#contact">Contact</a>
+    · <a href="#citation">Citation</a>
   </p>
 </div>
 
+<p align="center">
+  <img src="../odim.jpeg" alt="ODIM teaser" width="720" />
+</p>
 
 ## About
 
-ODIM (Operationalized Digital Interaction Mining) is an Android app that captures user interactions across installed apps to generate traces for research and analysis. It runs an AccessibilityService to observe interaction events and, on each relevant touch, records:
+ODIM (On-Device Interaction Mining) is an Android app that captures user interactions across installed apps to generate traces for research and analysis. It runs an AccessibilityService to observe interaction events and, on each relevant touch, records:
 
 - a full-screen screenshot
 - the view hierarchy (VH) at that moment as JSON
@@ -118,11 +124,12 @@ Requirements:
 
 Steps:
 
-1) Open this directory in Android Studio
-2) Build the project and install the `app` module
-3) In system settings, enable the ODIM accessibility service
-4) Launch ODIM and scan a QR code in `CaptureActivity` to load a task (optional)
-5) Use your device normally; ODIM will capture screens for non-ODIM apps you interact with
+1) Clone the repository from [interaction-mining](https://github.com/datadrivendesign/interaction-mining) and open this directory in Android Studio.
+2) Build the project and install the `app` module.
+3) Launch ODIM on your device or emulator.
+4) From `CaptureActivity`, scan a QR code to load a capture task (optional).
+5) Turn on the ODIM accessibility service in system settings (Settings → Accessibility → ODIM → On).
+6) Use your device normally; ODIM will capture screens for non-ODIM apps you interact with.
 
 
 ## Configuration
@@ -163,12 +170,12 @@ Key helpers in `utils/LocalStorageOps.kt` provide file I/O for listing apps/trac
 
 ## Activities
 
-- `CaptureActivity` – starting point for ingesting a capture task by scanning a QR code; shows task instructions and shortcuts to enable accessibility and launch the target app
-- `AppActivity` – lists apps that have captured traces; navigate into traces or multi-select to delete app data
-- `TraceActivity` – lists traces for the chosen app; shows task description and number of screens; supports multi-select delete
-- `EventActivity` – grid of events (screens) for a trace; supports edit gesture, split trace, delete screens, and upload trace
-- `ScreenShotActivity` – redact screen contents using VH-driven text selection or freeform rectangles; updates both VH JSON and PNG
-- `IncompleteScreenActivity` – resolve incomplete or unknown gestures: choose a VH candidate and gesture type; persists updated gesture and renames the event accordingly
+- [`CaptureActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/CaptureActivity.kt) – starting point for ingesting a capture task by scanning a QR code; shows task instructions and shortcuts to enable accessibility and launch the target app
+- [`AppActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/AppActivity.kt) – lists apps that have captured traces; navigate into traces or multi-select to delete app data
+- [`TraceActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/TraceActivity.kt) – lists traces for the chosen app; shows task description and number of screens; supports multi-select delete
+- [`EventActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/EventActivity.kt) – grid of events (screens) for a trace; supports edit gesture, split trace, delete screens, and upload trace
+- [`ScreenShotActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/ScreenShotActivity.kt) – redact screen contents using VH-driven text selection or freeform rectangles; updates both VH JSON and PNG
+- [`IncompleteScreenActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/IncompleteScreenActivity.kt) – resolve incomplete or unknown gestures: choose a VH candidate and gesture type; persists updated gesture and renames the event accordingly
 
 
 ## Accessibility service
@@ -204,14 +211,41 @@ Key helpers in `utils/LocalStorageOps.kt` provide file I/O for listing apps/trac
   - `POST /api/capture/{captureId}/upload/metadata`
 
 
-## Acknowledgements
+## Dependencies
 
 - CameraX (`androidx.camera:*`)
 - Google ML Kit (Barcode Scanning)
 - OkHttp (+ logging interceptor)
 - Jackson (Kotlin module)
 
+## Contact
+
+Developed by the Data-Driven Design Group at the University of Illinois Urbana-Champaign. For research collaborations or academic inquiries, visit the [project website](https://interactionmining.org) or [Prof. Ranjitha Kumar’s page](https://ranjithakumar.net/).
+
+For questions, bug reports, or support, please open an issue on the repository’s [GitHub Issues](https://github.com/datadrivendesign/interaction-mining/issues) page.
+
+For sensitive inquiries (e.g., security concerns), contact <carlguo2@illinois.edu>.
+
 
 ## License
 
 University of Illinois/NCSA Open Source License. See `LICENSE`.
+
+## Citation
+
+Our paper can be found [here](https://dl.acm.org/doi/10.1145/3743726). If you use ODIM in your work, please consider citing:
+
+```bibtex
+@article{10.1145/3743726,
+author = {Arsan, Deniz and Guo, Carl and Wellyanto, Muhammad Rizky and Ji, Erik R and Talton, Jerry O. and Kumar, Ranjitha},
+title = {On-Device Interaction Mining},
+journal = {Proc. ACM Hum.-Comput. Interact.},
+volume = {9},
+number = {5},
+articleno = {MHCI024},
+year = {2025},
+month = sep,
+doi = {10.1145/3743726},
+url = {https://doi.org/10.1145/3743726},
+}
+```
