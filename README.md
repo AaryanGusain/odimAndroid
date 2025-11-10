@@ -170,12 +170,12 @@ Key helpers in `utils/LocalStorageOps.kt` provide file I/O for listing apps/trac
 
 ## Activities
 
-- [`CaptureActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/CaptureActivity.kt) – starting point for ingesting a capture task by scanning a QR code; shows task instructions and shortcuts to enable accessibility and launch the target app
-- [`AppActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/AppActivity.kt) – lists apps that have captured traces; navigate into traces or multi-select to delete app data
-- [`TraceActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/TraceActivity.kt) – lists traces for the chosen app; shows task description and number of screens; supports multi-select delete
-- [`EventActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/EventActivity.kt) – grid of events (screens) for a trace; supports edit gesture, split trace, delete screens, and upload trace
-- [`ScreenShotActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/ScreenShotActivity.kt) – redact screen contents using VH-driven text selection or freeform rectangles; updates both VH JSON and PNG
-- [`IncompleteScreenActivity`](https://github.com/datadrivendesign/interaction-mining/blob/main/odim-android/app/src/main/java/edu/illinois/odim/activities/IncompleteScreenActivity.kt) – resolve incomplete or unknown gestures: choose a VH candidate and gesture type; persists updated gesture and renames the event accordingly
+- [`CaptureActivity`](app/src/main/java/edu/illinois/odim/activities/CaptureActivity.kt) – starting point for ingesting a capture task by scanning a QR code; shows task instructions and shortcuts to enable accessibility and launch the target app
+- [`AppActivity`](app/src/main/java/edu/illinois/odim/activities/AppActivity.kt) – lists apps that have captured traces; navigate into traces or multi-select to delete app data
+- [`TraceActivity`](app/src/main/java/edu/illinois/odim/activities/TraceActivity.kt) – lists traces for the chosen app; shows task description and number of screens; supports multi-select delete
+- [`EventActivity`](app/src/main/java/edu/illinois/odim/activities/EventActivity.kt) – grid of events (screens) for a trace; supports edit gesture, split trace, delete screens, and upload trace
+- [`ScreenShotActivity`](app/src/main/java/edu/illinois/odim/activities/ScreenShotActivity.kt) – redact screen contents using VH-driven text selection or freeform rectangles; updates both VH JSON and PNG
+- [`IncompleteScreenActivity`](app/src/main/java/edu/illinois/odim/activities/IncompleteScreenActivity.kt) – resolve incomplete or unknown gestures: choose a VH candidate and gesture type; persists updated gesture and renames the event accordingly
 
 
 ## Accessibility service
