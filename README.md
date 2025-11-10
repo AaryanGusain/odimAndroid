@@ -37,7 +37,7 @@
 </div>
 
 <p align="center">
-  <img src="../odim.jpeg" alt="ODIM teaser" width="720" />
+  <img src="odim.jpeg" alt="ODIM teaser" width="720" />
 </p>
 
 ## About
